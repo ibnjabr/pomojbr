@@ -1,79 +1,44 @@
-# 🎯 Pomojbr: Pixel-Aesthetic Pomodoro Timer & To-Do List
+⏱️ Pomojabr (Focus Timer & To-Do List)
+A retro pixel-styled productivity dashboard that combines a customizable Pomodoro Focus Timer with a dynamic To-Do List. Built with a vibrant cyberpunk neon aesthetic, featuring glowing animations and responsive layouts for both desktop and mobile users.
 
-A sleek, responsive, and highly interactive productivity web application that blends a customizable **Pomodoro Focus Timer** with a dynamic **To-Do List**. Built using custom fonts and a modern neon dark-mode style, this application helps users effectively manage tasks, maintain deep focus, and tracks productivity across all device sizes.
+This is my very 1st JavaScript project, built to master DOM manipulation, browser events, asynchronous intervals, and array data handling.
 
-🚀 **Live Demo:** `[https://ibnjabr.github.io/pomojbr/]`
+Features
+Customizable Focus Timer: A pixelated countdown timer with sound notifications (click effects and completion alarms). Users can input custom focus durations or fall back to the classic 25-minute default.
 
----
+Dynamic To-Do List: Full CRUD-like capabilities for tasks (Add, toggle completion, and delete) powered by modern JavaScript array methods.
 
-## ✨ Features
+Retro Pixel & Neon UI: Powered by specialized Google Fonts (Press Start 2P, Pixelify Sans, and Handjet) combined with smooth glassmorphism, intense text-shadow glowing, and reactive hover transitions.
 
-### ⏱️ Custom Pomodoro Focus Timer
-* **Strict Input Shielding:** Features an airtight verification loop (`while` condition) that safely filters the initial prompt values. It blocks empty fields, negative inputs, canceled windows, and alphabet characters, completely safeguarding the interface against `NaN:NaN` rendering bugs.
-* **Audio-Enhanced Feedback:** Integrated native HTML5 Audio API to play immersive sound effects on every user action (Start, Pause, Reset), along with an explicit alarm when the timer hits zero.
-* **Smart Reset Logic:** Clicking the Reset button reverts the timer back to the user's initial configuration preference safely without forcing a sudden automatic countdown trigger.
+Interactive Audio Feedback: Immersive sound effects built via the HTML5 Audio API for button clicks and completion alerts.
 
-### 📝 Dynamic & Fluid To-Do List
-* **Clean DOM Manipulation:** Tasks are dynamically populated and managed through a unified internal state array, keeping the user interface completely isolated from heavy HTML clutter.
-* **Event Delegation Architecture:** Employs optimized event listeners attached directly to parent nodes to seamlessly catch checkbox modifications (Task Completion) and instant removals without performance overhead.
-* **Stylized Completion System:** Completed tasks automatically transition through specific CSS state triggers, adding neat strike-through decorations and dimming properties for visual tracking.
+Responsive Layout: Tailored media queries that scale down deep typography, massive grid displays, and responsive textareas to look flawless on mobile screens down to 600px.
 
-### 📱 Fully Responsive Neon Design
-* **Glassmorphism Aesthetic:** Utilizes advanced CSS variables, glowing drop shadows, pixel-art fonts, and customized scrollbars to capture a true retro-cyber terminal feel.
-* **Mobile-First Layout Adaptations:** Armed with dynamic viewport scalability (`CSS Flexbox`) and Media Queries, making it adapt fluidly on micro smartphone screens up to high-resolution desktop environments.
+Tech Stack
+HTML5: Structures the semantic application view layout, containing the custom components and script structures.
 
----
+CSS3: Built with design features such as CSS custom variables (:root), absolute centering via Flexbox, keyframe-like transition effects, and breakpoint media queries.
 
-## 🛠️ Tech Stack Used
+JavaScript (ES6+): Governs state management (todos arrays), timer algorithms using setInterval, state updates via structural rendering functions (renderTodos), and event delegation.
 
-* **Structure:** Semantic HTML5 Markup.
-* **Styles:** CSS3 (Custom Properties/Variables, Flexbox Architecture, Glassmorphic effects, Media Queries).
-* **Logic:** Modern JavaScript (ES6+), Web Audio API, input sanitation loops, and runtime component re-rendering.
+How to Run Locally
+To test or modify this project locally on your system, execute these instructions:
 
----
+Clone this repository to your local directory:
+git clone https://github.com/YOUR_USERNAME/pomojabr.git
 
-## 📂 Project Structure
+Open the main directory.
 
-```text
-├── index.html       # Application core interface skeleton
-├── style.css        # Theme configurations and viewports scaling layout
-├── script.js        # Timer intervals, validation loops, and task engine
-├── pomo.png         # Project Favicon icon asset
-├── click.mp3        # Click interaction audio asset
-└── alarm.mp3        # Focus session completion sound asset
+Launch index.html inside any web browser, or launch it through the VS Code Live Server extension for dynamic hot-reloading updates.
 
-```
+Development Highlights
+Key programmatic solutions implemented within this release:
 
----
+String Formatting: Handled time representation padding dynamically via String.padStart(2, "0") to guarantee a clean 00:00 display structure.
 
-## ⚙️ Key Code Implementations
+State Synchronicity: Engineered task state updates using mapping and filtering procedures (todos.map and todos.filter), followed by clean element flushing via todoList.innerHTML = "" before re-rendering.
 
-1. **Airtight Inputs Loop:**
-```javascript
-while (timeFromUser === null || timeFromUser.trim() === "" || Number(timeFromUser) <= 0 || isNaN(Number(timeFromUser))) {
-    timeFromUser = prompt("Invalid Input! Please enter a valid number greater than 0:");
-}
+Robust Audio Controls: Implemented .currentTime = 0 prior to calling .play() to allow immediate, rapid audio retriggers without lagging behind fast user clicks.
 
-```
-
-
-2. **Flexible Responsive Scaling:**
-```css
-@media (max-width: 600px) {
-    .pomodoro-card, .todo-card {
-        width: 100% !important;
-        max-width: 100%;
-        padding: 1rem; 
-    }
-}
-
-```
-
-
-
----
-
-## 📸 Author
-
-Proudly designed and engineered with clean code architecture by **ibnJabr** 💻.
-*Feel free to fork this project, open issues, or drop a star ⭐ if you find it helpful!*
+Credits
+Made with passion and without ☕ by ibnJabr (https://github.com/ibnjabr)
