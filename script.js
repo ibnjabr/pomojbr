@@ -1,18 +1,6 @@
-let timeFromUser = prompt("Please Add a pomodoro time > ");
+let fetchingtime = document.querySelector(".user-time");
 
-while (
-  timeFromUser === null ||
-  timeFromUser.trim() === "" ||
-  Number(timeFromUser) <= 0 ||
-  isNaN(Number(timeFromUser))
-) {
-  timeFromUser = prompt(
-    "Invalid Input! Please enter a valid number greater than 0:",
-  );
-}
-
-let minutesInput = Number(timeFromUser);
-let timeLeft = minutesInput * 60; 
+let timeLeft = 0;
 let timerInterval = null;
 
 const timer = document.querySelector(".time-display");
@@ -33,10 +21,18 @@ updateDisplay = () => {
 
   timer.textContent = `${minString}:${secString}`;
 };
+
 updateDisplay();
 
-startTimer = () => {
+const startTimer = () => {
   if (timerInterval !== null) return;
+
+  if (timeLeft === 0) {
+    let timeFromUser = fetchingtime.value;
+    let minutesInput = Number(timeFromUser) || 25;
+    timeLeft = minutesInput * 60;
+  }
+
   timerInterval = setInterval(() => {
     timeLeft--;
     updateDisplay();
@@ -59,7 +55,8 @@ pauseTimer = () => {
 
 resetTimer = () => {
   pauseTimer();
-  timeLeft = timeFromUser * 60;
+  userTime = fetchingtime.value
+  timeLeft =  userTime * 60;
   updateDisplay();
 };
 

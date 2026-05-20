@@ -230,6 +230,23 @@ footer span:hover{
     text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
 
+.user-time{
+    padding: 10px;
+    margin-top: 15px;   
+    background-color: #0f172a;
+    border: 1px solid var(--primary-glow);
+    color: var(--text-main);
+    text-align: center;
+    font-family: "Handjet", sans-serif;
+    font-size: 35px;
+    width: 150px;
+    transition: all 1s ease;
+}
+
+.user-time:focus{
+    border: 1px solid rgb(255, 17, 17);
+    outline: none;
+}
 .todo-item.completed span {
     color: var(--primary-glow) !important; 
     text-decoration: line-through !important;
