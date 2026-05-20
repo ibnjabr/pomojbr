@@ -308,3 +308,7 @@ footer span:hover{
         padding: 0 0.5rem;
     }
 }
+
+.todo-item span{
+    font-family: "Pixelify Sans", "Handjet", sans-serif;
+}
