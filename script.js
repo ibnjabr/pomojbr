@@ -20,6 +20,12 @@ updateDisplay = () => {
   let secString = String(seconds).padStart(2, "0");
 
   timer.textContent = `${minString}:${secString}`;
+
+  if (timerInterval !== null) {
+    document.title = `(${minString}:${secString}) PomoJabr`;
+  } else {
+    document.title = "PomoJabr";
+  }
 };
 
 updateDisplay();
@@ -33,15 +39,26 @@ const startTimer = () => {
     timeLeft = minutesInput * 60;
   }
 
+  const startTime = Date.now();
+  const endTime = startTime + timeLeft * 1000;
+
   timerInterval = setInterval(() => {
-    timeLeft--;
-    updateDisplay();
-    if (timeLeft === 0) {
+    const now = Date.now();
+    const remainingTimeInMs = endTime - now;
+
+    timeLeft = Math.ceil(remainingTimeInMs / 1000);
+
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+      updateDisplay();
       clearInterval(timerInterval);
       timerInterval = null;
+      document.title = "Time's up! 🔔"; 
       alarmSound.currentTime = 0;
       alarmSound.play();
-      alert("take a rest ! ");
+      alert("Take a rest! 🔔");
+    } else {
+      updateDisplay(); 
     }
   }, 1000);
 };
