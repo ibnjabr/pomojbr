@@ -150,6 +150,7 @@ const renderTodos = () => {
             <span>${todo.text}</span>
             <input type="checkbox" data-id="${todo.id}" ${todo.completed ? "checked" : ""}>
             <button class="delete-btn" data-id="${todo.id}">X</button>
+            <button class = 'edit-btn' id="${todo.id}">📝</button>
         `;
 
     todoList.appendChild(li);
@@ -182,7 +183,29 @@ todoList.addEventListener("click", (e) => {
     clickSound.play();
     renderTodos();
   }
+
+  else if (e.target.classList.contains("edit-btn")) {
+    const todoId = e.target.id;
+    clickSound.currentTime = 0;
+    clickSound.play()
+    editTask(e.target.id)
+  }
 });
+
+const editTask = (id) => {
+  const task = todos.find(todo => todo.id === Number(id));
+
+  if (task) {
+    console.log(task.text);
+  }
+  let newText = prompt("Editing task!", task.text);
+
+  if (newText && newText.trim !== "") {
+    task.text = newText.trim();
+    saveTodos()
+    renderTodos()
+  }
+}
 
 document.addEventListener("keydown", (e) => {
   if (e.code === "Space") {

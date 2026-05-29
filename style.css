@@ -313,3 +313,19 @@ footer span:hover{
 .todo-item span{
     font-family: "Pixelify Sans", "Handjet", sans-serif;
 }
+
+.edit-btn{
+    background-color:initial;
+    color: var(--text-muted);
+    border:0;
+    margin-left: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.edit-btn:hover{
+    padding: 2px;
+}
+.edit-btn:active{
+    padding: 3px;
+}
