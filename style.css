@@ -327,3 +327,6 @@ footer span:hover{
     color:#2ecc71;
 }
 
+.edit-btn i {
+  pointer-events: none;
+}
