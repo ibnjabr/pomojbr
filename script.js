@@ -150,7 +150,7 @@ const renderTodos = () => {
             <span>${todo.text}</span>
             <input type="checkbox" data-id="${todo.id}" ${todo.completed ? "checked" : ""}>
             <button class="delete-btn" data-id="${todo.id}">X</button>
-            <button class = 'edit-btn' id="${todo.id}">📝</button>
+            <button class = 'edit-btn' id="${todo.id}"><i class="fa-solid fa-pen-to-square"></i></button>
         `;
 
     todoList.appendChild(li);
